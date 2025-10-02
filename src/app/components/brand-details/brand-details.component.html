@@ -1,0 +1,39 @@
+<section class="my-4 container">
+  @if (brandDetails) {
+    <div class="text-center mb-4">
+      <img [src]="brandDetails.image" [alt]="brandDetails.name" class="w-25 mx-auto d-block mb-3 rounded">
+      <h2 class="text-main">{{ brandDetails.name }}</h2>
+      <p class="text-muted">Slug: {{ brandDetails.slug }}</p>
+      <hr>
+    </div>
+  }
+
+  <h3 class="mb-3">Products of this Brand:</h3>
+
+  <div class="row g-3">
+    @for (product of brandProducts; track product.id) {
+      <div class="col-md-2">
+        <div class="product p-2 cursor-pointer">
+          <div [routerLink]="['/details', product.id]">
+            <img class="w-100" [src]="product.imageCover" [alt]="product.title">
+            <h3 class="text-main small">{{product.category?.name}}</h3>
+            <h4 class="h6">{{product.title.split(" ", 2).join(" ") }}</h4>
+            <div class="d-flex justify-content-between align-items-center">
+              <span>{{product.price}} EGP</span>
+              <div>
+                @for (item of [1,2,3,4,5].slice(0, product.ratingsAverage); track $index) {
+                  <span><i class="fas fa-star rating-color"></i></span>
+                }
+                @if(product.ratingsAverage % 2 !== 0){
+                  <span><i class="fas fa-star-half-stroke rating-color"></i></span>
+                }
+                <span class="text-muted">{{product.ratingsAverage}}</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn-main w-100" (click)="addCart(product.id)">Add to cart</button>
+        </div>
+      </div>
+    }
+  </div>
+</section>

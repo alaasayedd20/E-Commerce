@@ -1,0 +1,1 @@
+import{Fb as l,Mb as s,ca as o,ob as n,pb as r}from"./chunk-QHBEINOU.js";var a=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-allorders"]],standalone:!0,features:[s],decls:2,vars:0,template:function(e,i){e&1&&(n(0,"p"),l(1,"allorders works!"),r())}})};export{a as AllordersComponent};

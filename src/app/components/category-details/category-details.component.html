@@ -1,0 +1,35 @@
+<section class="container py-5">
+  @if (products.length === 0) {
+    <p class="text-center text-muted fs-5">No products found in this category.</p>
+  } @else {
+    <div class="row g-4">
+      @for (product of products; track product._id) {
+        <div class="col-md-3">
+          <div class="card h-100 shadow-sm border-0">
+            <a [routerLink]="['/details', product._id]" class="text-decoration-none">
+              <img
+                [src]="product.imageCover"
+                class="card-img-top"
+                [alt]="product.title"
+              />
+            </a>
+            <div class="card-body text-center d-flex flex-column">
+              <h6 class="card-title mb-2">
+                {{ product.title.split(" ", 3).join(" ") }}
+              </h6>
+              <p class="fw-bold text-success mb-3">
+                {{ product.price | currency: 'EGP' }}
+              </p>
+              <button
+                class="btn-main btn-sm mt-auto"
+                (click)="addCart(product._id)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</section>

@@ -1,0 +1,16 @@
+<section class="container py-5">
+  <div class="row g-4">
+    @for (category of categoriesList; track category._id) {
+      <div class="col-md-3">
+        <a [routerLink]="['/categories', category._id]" class="text-decoration-none text-dark">
+          <div class="card h-100 shadow-sm">
+            <img height="350px" [src]="category.image" class="card-img-top" [alt]="category.name" />
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ category.name }}</h5>
+            </div>
+          </div>
+        </a>
+      </div>
+    }
+  </div>
+</section>

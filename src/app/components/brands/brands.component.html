@@ -1,0 +1,13 @@
+<section class="my-3">
+  <h2 class="text-center text-main">All Brands</h2>
+  <div class="row g-3">
+    @for (brand of brandsList; track brand._id) {
+      <div class="col-md-2">
+        <div class="brand-card cursor-pointer border p-2 rounded" [routerLink]="['/brands', brand._id]">
+          <img [src]="brand.image" [alt]="brand.name" class="w-100">
+          <h5 class="text-center mt-2">{{ brand.name }}</h5>
+        </div>
+      </div>
+    }
+  </div>
+</section>
