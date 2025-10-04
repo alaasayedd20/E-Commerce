@@ -17,6 +17,11 @@
 body {
   font-family: var(--font-family) !important;
 }
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 
 .nav-link {
   transition: unset !important;
